@@ -34,7 +34,7 @@ public:
 private:
 	std::chrono::steady_clock::time_point begin;
 	std::chrono::steady_clock::time_point end;
-	std::chrono::duration<double> passed;
+	std::chrono::duration<double> passed = std::chrono::duration<double>(0);
 };
 
 int main() {
