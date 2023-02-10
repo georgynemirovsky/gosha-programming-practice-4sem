@@ -28,6 +28,7 @@ public:
 	}
 
 	~Timer() {
+	    std::cout << std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::steady_clock::now() - begin).count() << "Last interval" << std::endl;
 		std::cout << "Delete timer" << '\n';
 	}
 private:
