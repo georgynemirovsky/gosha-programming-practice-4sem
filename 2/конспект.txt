@@ -50,3 +50,23 @@ map - хранит пару
 2)Распределение
 
 генератор-->распределение-->число
+
+Алгоритмы
+-<numeric>
+1. accumulate
+2. gcd, lcm
+3. inner_product (скалярное произведение)
+-<algorithm>
+1. sort
+2. list, foruart_list--> .sort
+3. unique
+4. remove (remove_if) + .erase
+5. min, max, min_element, max_element, minmax_element
+6. transform (из одного массива получает другой с помощью лямбды)
+7. nth_element (если отсортировать, то на каком месте стоит, служит для нахождения медианы)
+8. upper/lower _bound (методы для map и set)
+9. copy/copy_if
+
+Специальные итераторы
+std::back_insertor (делает push_back)
+std::insert(делает insert)

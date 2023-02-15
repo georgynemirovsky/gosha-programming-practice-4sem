@@ -5,7 +5,7 @@
 #include <list>
 #include <chrono>
 #include <random>
-
+#include <algorithm>
 
 class Timer {
 public:
@@ -43,10 +43,26 @@ int main() {
 
     std::random_device d;
     std::mt19937_64 mt(d());
-    std::uniform_int_distribution<int> distribution(1, 10);
-    for (auto i = 0; i < 10; i++) {
-        std:: cout << distribution(mt) << ' ';
+    std::uniform_int_distribution<int> distribution(1, 1000);
+
+    std::vector<int> v(100'000);
+    std::list<int> list;
+
+    for(auto i = 0; i < 100'000; i++) {
+        auto random_element = distribution(mt);
+        v.push_back(random_element);
+        list.push_back(random_element);
     }
-    std::cout << std::endl;
+
+    std::cout << "vector:" << std::endl;
+    {
+        Timer t;
+        std::sort(std::begin(v),  std::end(v));
+    }
+    std::cout << "list:" << std::endl;
+    {
+        Timer t;
+        list.sort();
+    }
     return 0;
 }
