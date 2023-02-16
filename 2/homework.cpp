@@ -150,10 +150,15 @@ int main() {
     std::vector<int> P4;
     std::copy(P1.begin(), P1.end(), std::back_inserter(P4));
     std::copy(P2.begin(), P2.end(), std::back_inserter(P4));
+    std::sort(range(P4));
     std::cout << "ex18: " << P4 << std::endl;
 
 
-    std::cout << "ex19: " << std::endl;
+    int i = 0;
+    while ((P4.at(i) <= 1) && (i < P4.size())) {
+        i++;
+    }
+    std::cout << "ex19: Maximum possible index: " << i << std::endl;
 
 
     std::cout << "ex20: " << std::endl <<
