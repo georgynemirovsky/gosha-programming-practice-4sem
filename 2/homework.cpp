@@ -98,6 +98,70 @@ int main() {
     std::cout << "ex9: " << P2 << std::endl;
 
 
-    std::cout << "ex10: " << std::accumulate(range(P2), 0);
+    std::cout << "ex10: " << std::accumulate(range(P2), 0) << std::endl;
+
+
+    std::cout << "How much elements you want change? Number of elements: " << P2.size() << std::endl;
+    std::cin >> n;
+    for (int i = 0; i < n; i++) {
+        P2.at(i) = 1;
+    }
+    std::cout << "ex11: " << P2 << std::endl;
+
+
+    std::vector<int> P3;
+    for (int i = 0; i < P1.size(); i++) {
+        P3.push_back(P2.at(i) - P1.at(i));
+    }
+    std::cout << "ex12: " << P3 << std::endl;
+
+
+    std::transform(range(P3), std::begin(P3), [](auto item){if (item < 0) {return 0;} else {return item;}});
+    std::cout << "ex14: " << P3 << std::endl;
+
+
+    std::vector<int> other;
+    std::reverse_copy(std::begin(P3), std::end(P3), std::back_inserter(other));
+    P3 = other;
+    std::cout << "ex15: " << P3 << std::endl;
+
+
+    int m1 = 0, m2 = 0, m3 = 0;
+    for (auto it : P3) {
+        if (it >= m1) {
+            m3 = m2;
+            m2 = m1;
+            m1 = it;
+        } else if (it >= m2) {
+            m3 = m2;
+            m2 = it;
+        } else if (it >= m3) {
+            m3 = it;
+        }
+    }
+    std::cout << "ex16: " << m3 << ' ' << m2 << ' ' << m1 << std::endl;
+
+
+    std::sort(range(P1));
+    std::sort(range(P2));
+    std::cout << "ex17:" << std::endl << "P1: " << P1 << std::endl << "P2: " << P2 << std::endl;
+
+
+    std::vector<int> P4;
+    std::copy(P1.begin(), P1.end(), std::back_inserter(P4));
+    std::copy(P2.begin(), P2.end(), std::back_inserter(P4));
+    std::cout << "ex18: " << P4 << std::endl;
+
+
+    std::cout << "ex19: " << std::endl;
+
+
+    std::cout << "ex20: " << std::endl <<
+    "P1: " << P1 << std::endl <<
+    "P2: " << P2 << std::endl <<
+    "P3: " << P3 << std::endl <<
+    "P4: " << P4 << std::endl;
+
+
     return 0;
 }
