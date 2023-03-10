@@ -1,0 +1,19 @@
+Работа и обмен файлами
+1.Файловая система(заголовочный файл) std::filesystem
+2.JSON
+  nlohmann::json
+3.Регулярки
+  std::regex
+
+
+<fstream> (иногда <experimental / filesystem)
+std::ifstream
+std::ofstream
+для них необходимо указать путь или строку
+std::fstream("file.txt", std::ios::in\std::ios::out)
+вместо первого строка или путь
+namespace std::filesystem
+path - путь  -проверка валидности
+	     -копирование удаление
+	     -итерации (по дир.)
+
