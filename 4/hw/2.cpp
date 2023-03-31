@@ -20,6 +20,9 @@ void parallel_for_each (Iter begin, Iter end, Func f) {
         futures.push_back(std::async(std::launch::async, &block_for_each<Iter, Func>, std::next(begin, i * block_size), std::next(begin, (i + 1) * block_size), f));
     }
     futures.push_back(std::async(std::launch::async, &block_for_each<Iter, Func>, std::next(begin, (num_threads - 1) * block_size), end, f));
+    for(auto& it : futures) {
+        it.wait();
+    }
 }
 
 int main() {
