@@ -22,6 +22,8 @@ bool is_prime (int value) {
     return true;
 }
 
+bool less_then (int i) { return (i < 0); }
+
 #define range(container) std::begin(container), std::end(container)
 
 int main() {
@@ -115,6 +117,8 @@ int main() {
     }
     std::cout << "ex12: " << P3 << std::endl;
 
+    std::replace_if(P3.begin(), P3.end(), less_then, 0);
+    std::cout << "ex13: " << P3 << std::endl;
 
     std::transform(range(P3), std::begin(P3), [](auto item){if (item < 0) {return 0;} else {return item;}});
     std::cout << "ex14: " << P3 << std::endl;
